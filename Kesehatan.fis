@@ -1,0 +1,74 @@
+[System]
+Name='Kesehatan'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=12
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='TekananDarah'
+Range=[0 200]
+NumMFs=3
+MF1='<90':'gaussmf',[37.79 0.5]
+MF2='90-120':'gaussmf',[12.32 105.5]
+MF3='>120':'gaussmf',[33.97 200]
+
+[Input2]
+Name='Suhu'
+Range=[0 100]
+NumMFs=3
+MF1='<=35':'gaussmf',[15.08 -0.25]
+MF2='35-41':'gaussmf',[1.614 37.1]
+MF3='>=41':'gaussmf',[17.79 99.05]
+
+[Input3]
+Name='Usia'
+Range=[0 100]
+NumMFs=3
+MF1='<35':'trimf',[-40 0 35]
+MF2='35-55':'trimf',[35 45 55]
+MF3='>55':'trimf',[55 100 140]
+
+[Output1]
+Name='Tensi'
+Range=[0 200]
+NumMFs=3
+MF1='Hipotensi':'trimf',[-80 0 90]
+MF2='normal':'trimf',[90 105 120]
+MF3='Hipertensi':'trimf',[120 200 280]
+
+[Output2]
+Name='Suhu'
+Range=[0 100]
+NumMFs=3
+MF1='Dingin':'trimf',[-39.7 0.265 36.5]
+MF2='normal':'trimf',[36.5 37 37.2]
+MF3='Panas':'trimf',[37.2 100 140]
+
+[Output3]
+Name='Golongan'
+Range=[0 100]
+NumMFs=3
+MF1='Muda':'trimf',[-40 0 34.5]
+MF2='Parobaya':'trimf',[35 45 55]
+MF3='Tua':'trimf',[55.5 100 140]
+
+[Rules]
+1 0 0, 1 0 0 (1) : 1
+3 0 0, 3 0 0 (1) : 1
+2 0 0, 2 0 0 (1) : 1
+0 1 0, 0 1 0 (1) : 1
+0 2 0, 0 2 0 (1) : 1
+0 3 0, 0 3 0 (1) : 1
+0 0 1, 0 0 1 (1) : 1
+0 0 2, 0 0 2 (1) : 1
+0 0 3, 0 0 3 (1) : 1
+1 0 1, 1 0 1 (1) : 1
+3 0 -1, 3 0 -1 (1) : 1
+2 2 0, 2 2 0 (1) : 1
