@@ -39,17 +39,17 @@ MF3='>55':'trimf',[55 100 140]
 Name='Tensi'
 Range=[0 200]
 NumMFs=3
-MF1='Hipotensi':'trimf',[-80 0 90]
+MF1='Hipotensi':'trimf',[0 45 90]
 MF2='normal':'trimf',[90 105 120]
-MF3='Hipertensi':'trimf',[120 200 280]
+MF3='Hipertensi':'trimf',[120 160 200]
 
 [Output2]
 Name='Suhu'
 Range=[0 100]
 NumMFs=3
-MF1='Dingin':'trimf',[-39.7 0.265 36.5]
+MF1='Dingin':'trimf',[0 18.265 36.5]
 MF2='normal':'trimf',[36.5 37 37.2]
-MF3='Panas':'trimf',[37.2 100 140]
+MF3='Panas':'trimf',[37.2 67 100]
 
 [Output3]
 Name='Golongan'
